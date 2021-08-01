@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layoutHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/header_background"
+        android:padding="10dp"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:text=""
+            tools:ignore="MissingConstraints" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/colorWhite"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <ImageView
+                android:id="@+id/search_button"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@color/colorWhite"
+                android:contentDescription="@string/app_name"
+                android:padding="6dp"
+                android:src="@drawable/ic_search"
+                android:tint="#7A7136"/>
+            <EditText
+                android:id="@+id/edittext"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="키워드를 입력하시오.   ex) 김치, 에이드 등"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="10sp"
+                android:importantForAutofill="no"/>
+
+        </LinearLayout>
+
+
+    </android.support.constraint.ConstraintLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutHeader">
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:id="@+id/layoutfirst"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="22dp"
+                android:background="@color/colorWhite"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="15dp"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toStartOf="@id/layoutsecond"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+                <ImageView
+                    android:id="@+id/img_drink"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/app_name"
+                    android:padding="8dp"
+                    android:src="@drawable/icon_drink"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/layoutsecond"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="22dp"
+                android:background="@color/colorWhite"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="15dp"
+                app:layout_constraintStart_toEndOf="@id/layoutfirst"
+                app:layout_constraintDimensionRatio="H, 1:1"
+                app:layout_constraintEnd_toEndOf="@id/layoutthird"
+                app:layout_constraintTop_toTopOf="parent">
+                <ImageView
+                    android:id="@+id/img_food"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/app_name"
+                    android:padding="8dp"
+                    android:src="@drawable/rice2" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/layoutthird"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="22dp"
+                android:background="@color/colorWhite"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="15dp"
+                app:layout_constraintStart_toEndOf="@id/layoutsecond"
+                app:layout_constraintDimensionRatio="H, 1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+                <ImageView
+                    android:id="@+id/img_desert"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/app_name"
+                    android:padding="8dp"
+                    android:src="@drawable/icon_desert" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/layoutfour"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="22dp"
+                android:background="@color/colorWhite"
+                android:gravity="center"
+
+                android:orientation="vertical"
+                android:padding="15dp"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintTop_toBottomOf="@id/layoutfirst"
+                app:layout_constraintEnd_toStartOf="@id/layoutfive"
+                app:layout_constraintStart_toStartOf="parent">
+                <ImageView
+                    android:id="@+id/img_diet"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/app_name"
+                    android:padding="8dp"
+                    android:src="@drawable/icon_dietx" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutfive"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="22dp"
+                android:background="@color/colorWhite"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="15dp"
+                app:layout_constraintDimensionRatio="H, 1:1"
+                app:layout_constraintEnd_toEndOf="@id/layoutsix"
+                app:layout_constraintStart_toEndOf="@id/layoutfour"
+                app:layout_constraintTop_toBottomOf="@id/layoutsecond">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/app_name"
+                    android:padding="8dp"
+                    android:src="@drawable/icon_specialx" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutsix"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="22dp"
+                android:background="@color/colorWhite"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="15dp"
+                app:layout_constraintStart_toEndOf="@id/layoutfive"
+                app:layout_constraintDimensionRatio="H, 1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layoutthird">
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/app_name"
+                    android:padding="8dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/centerline"
+                app:layout_constraintTop_toBottomOf="@id/layoutfour"
+                android:layout_width="match_parent"
+                android:background="@color/colorBackground"
+                android:layout_height="15dp"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/todaycook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                app:layout_constraintTop_toBottomOf="@id/centerline">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="오늘의 추천"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold"
+                    android:textSize="22dp">
+                </TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/horizontalview"
+                app:layout_constraintTop_toBottomOf="@id/todaycook"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/centerline2"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/horizontalview"
+                android:layout_width="match_parent"
+                android:background="@color/colorBackground"
+                android:layout_height="15dp"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/gooddata"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                app:layout_constraintTop_toBottomOf="@id/centerline2">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="자취생 꿀팁"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold"
+                    android:textSize="22dp">
+                </TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/recipefirst"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/gooddata"
+                app:layout_constraintEnd_toStartOf="@id/recipesecond"
+                android:layout_margin="20dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:id="@+id/gooddata1"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:background="@drawable/edit_round"
+                    android:src="@drawable/etc_1"></ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="15dp"
+                    android:paddingTop="5dp"
+                    android:textColor="@color/colorBlack"
+                    android:text="자취생 재활용 꿀팁!">
+                </TextView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/recipesecond"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/gooddata"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="20dp"
+                app:layout_constraintStart_toEndOf="@id/recipefirst">
+                <ImageView
+                    android:id="@+id/gooddata2"
+                    android:layout_width="150dp"
+                    android:background="@drawable/edit_round"
+                    android:layout_height="150dp"
+                    android:src="@drawable/etc_2">
+                </ImageView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingTop="5dp"
+                    android:textSize="15dp"
+                    android:textColor="@color/colorBlack"
+                    android:text="자취생 청소 꿀팁!">
+                </TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/recipethird"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/recipefirst"
+                app:layout_constraintEnd_toStartOf="@id/recipefour"
+                android:layout_margin="20dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent">
+                <ImageView
+                    android:id="@+id/gooddata3"
+                    android:layout_width="150dp"
+                    android:background="#E0BFE6"
+                    android:layout_height="150dp"
+                    android:paddingTop="5dp"
+                    android:src="@drawable/etc_3">
+                </ImageView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="15dp"
+                    android:paddingTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/colorBlack"
+                    android:text="식재료 보관법 꿀팁!">
+                </TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/recipefour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/recipesecond"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="20dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toEndOf="@id/recipethird">
+                <ImageView
+                    android:id="@+id/gooddata4"
+                    android:layout_width="150dp"
+                    android:background="#c2c2c2"
+                    android:layout_height="150dp"
+                    android:paddingTop="5dp"
+                    android:src="@drawable/etc_4">
+                </ImageView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="15dp"
+                    android:paddingTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/colorBlack"
+                    android:text="여름장마 대비 꿀팁!">
+                </TextView>
+            </LinearLayout>
+
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+
+
+</android.support.constraint.ConstraintLayout >

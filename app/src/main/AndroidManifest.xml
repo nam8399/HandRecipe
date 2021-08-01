@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="recipeinhand.com.sidemenu.sample" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        android:usesCleartextTraffic="true" >
+
+        <activity
+            android:name=".SplashActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".recipe.desert.onepantoastActivity" />
+        <activity android:name=".recipe.desert.riceburgerActivity" />
+        <activity android:name=".recipe.food.cheeserabokeeActivity" />
+        <activity android:name=".recipe.food.creamshrimpActivity" />
+        <activity android:name=".recipe.food.creampastaActivity" />
+        <activity android:name=".recipe.food.kimchizzigaeActivity" />
+        <activity android:name=".recipe.food.kimchinoodleActivity" />
+        <activity android:name=".recipe.food.kimchiriceActivity" />
+        <activity android:name=".recipe.drink.bluelemonadeActivity" />
+        <activity android:name=".recipe.drink.bananasmoothieActivity" />
+        <activity android:name=".recipe.drink.orangeadeActivity" />
+        <activity android:name=".recipe.drink.zamongadeActivity" />
+        <activity android:name=".recipe.drink.StrawberryLatteActivity" />
+        <activity android:name=".recipe.drink.dalgonaActivity" />
+        <activity android:name=".WebviewActivity" />
+    </application>
+
+</manifest>

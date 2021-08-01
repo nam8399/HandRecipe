@@ -1,0 +1,38 @@
+apply plugin: 'com.android.application'
+repositories {
+    maven {
+        url "https://jitpack.io"
+    }
+}
+android {
+    compileSdkVersion 30
+    buildToolsVersion "28.0.3"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation project(':library')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.github.ozodrukh:CircularReveal:2.1.0'
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.github.elevenetc:textsurface:0.9.1'
+    implementation 'com.android.support.constraint:constraint-layout:2.0.1'
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
+    // For control over item selection of both touch and mouse driven selection
+    implementation "androidx.recyclerview:recyclerview-selection:1.1.0"
+
+}
