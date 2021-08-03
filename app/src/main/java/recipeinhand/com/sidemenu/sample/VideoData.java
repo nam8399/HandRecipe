@@ -11,18 +11,17 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+
 public class VideoData {
-    private int image;
-    private int imageid;
+    private int imageResId;
 
-    public VideoData(int imageid, int image){
-        this.imageid = imageid;
-        this.image = image;
+
+    public VideoData(int a_resId) {
+        imageResId = a_resId;
     }
 
-    public int getImage()
-    {
-        return this.image;
+    public int getImageResId() {
+        return imageResId;
     }
-    public int getImageid() { return this.imageid; }
+
 }

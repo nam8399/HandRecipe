@@ -31,8 +31,7 @@ dependencies {
     implementation 'com.android.support:support-v4:28.0.0'
     implementation 'com.github.elevenetc:textsurface:0.9.1'
     implementation 'com.android.support.constraint:constraint-layout:2.0.1'
-    implementation "androidx.recyclerview:recyclerview:1.2.1"
+    implementation 'com.android.support:recyclerview-v7:26.+'
     // For control over item selection of both touch and mouse driven selection
-    implementation "androidx.recyclerview:recyclerview-selection:1.1.0"
 
 }

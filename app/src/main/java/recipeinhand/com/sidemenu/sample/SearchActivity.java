@@ -22,6 +22,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import recipeinhand.com.sidemenu.sample.fragment.ContentFragment;
+import recipeinhand.com.sidemenu.sample.fragment.DesertFragment;
 import recipeinhand.com.sidemenu.sample.recipe.desert.onepantoastActivity;
 import recipeinhand.com.sidemenu.sample.recipe.desert.riceburgerActivity;
 import recipeinhand.com.sidemenu.sample.recipe.drink.StrawberryLatteActivity;
@@ -526,8 +527,8 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     private void goToMain() {
-        finish();
 
+        finish();
 
     }
 
