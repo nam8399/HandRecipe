@@ -200,8 +200,6 @@ public class ContentFragment extends Fragment implements ScreenShotable {
         img_diet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ScrollView scrollView = rootView.findViewById(R.id.scrollView);
-                scrollView.fullScroll(ScrollView.FOCUS_FORWARD);
             }
         });
 

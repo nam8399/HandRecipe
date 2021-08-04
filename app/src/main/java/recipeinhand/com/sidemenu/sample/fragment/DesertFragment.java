@@ -19,6 +19,7 @@ import recipeinhand.com.sidemenu.sample.MyAdapter;
 import recipeinhand.com.sidemenu.sample.R;
 import recipeinhand.com.sidemenu.sample.SampleData;
 import recipeinhand.com.sidemenu.sample.onBackPressedListener;
+import recipeinhand.com.sidemenu.sample.recipe.desert.gambasActivity;
 import recipeinhand.com.sidemenu.sample.recipe.desert.onepantoastActivity;
 import recipeinhand.com.sidemenu.sample.recipe.desert.riceburgerActivity;
 import recipeinhand.com.sidemenu.sample.recipe.food.cheeserabokeeActivity;
@@ -91,6 +92,10 @@ public class DesertFragment extends Fragment implements onBackPressedListener {
                     Intent intent = new Intent(getContext(), onepantoastActivity.class);
                     startActivity(intent);
                 }
+                if (myAdapter.getItem(position).getTitle() == "새우 감바스") {
+                    Intent intent = new Intent(getContext(), gambasActivity.class);
+                    startActivity(intent);
+                }
             }
 
 
@@ -116,6 +121,7 @@ public class DesertFragment extends Fragment implements onBackPressedListener {
 
         recipeList.add(new SampleData(R.drawable.desert_riceburger, "밥버거","캔참치 150g, 자른김치 200g, 슬라이스치즈, 김, 양파 50g, 밥"));
         recipeList.add(new SampleData(R.drawable.desert_onepantoast, "원팬 계란토스트","식빵 1장, 계란 2개, 체다슬라이스치즈 1장, 설탕, 소금"));
+        recipeList.add(new SampleData(R.drawable.desert_gambas, "새우 감바스","칵테일 새우 200g, 소금, 고춧가루 1/3스푼, 양송이 4개, 방울토마토 5개, 브로콜리 60g, 통마늘 15개,  올리브유 180ml, 후추"));
     }
     @Override
     public void onBackPressed() {

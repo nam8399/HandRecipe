@@ -23,12 +23,14 @@ import java.util.ArrayList;
 
 import recipeinhand.com.sidemenu.sample.fragment.ContentFragment;
 import recipeinhand.com.sidemenu.sample.fragment.DesertFragment;
+import recipeinhand.com.sidemenu.sample.recipe.desert.gambasActivity;
 import recipeinhand.com.sidemenu.sample.recipe.desert.onepantoastActivity;
 import recipeinhand.com.sidemenu.sample.recipe.desert.riceburgerActivity;
 import recipeinhand.com.sidemenu.sample.recipe.drink.StrawberryLatteActivity;
 import recipeinhand.com.sidemenu.sample.recipe.drink.bananasmoothieActivity;
 import recipeinhand.com.sidemenu.sample.recipe.drink.bluelemonadeActivity;
 import recipeinhand.com.sidemenu.sample.recipe.drink.dalgonaActivity;
+import recipeinhand.com.sidemenu.sample.recipe.drink.orangeadeActivity;
 import recipeinhand.com.sidemenu.sample.recipe.drink.zamongadeActivity;
 import recipeinhand.com.sidemenu.sample.recipe.food.cheeserabokeeActivity;
 import recipeinhand.com.sidemenu.sample.recipe.food.creampastaActivity;
@@ -36,6 +38,7 @@ import recipeinhand.com.sidemenu.sample.recipe.food.creamshrimpActivity;
 import recipeinhand.com.sidemenu.sample.recipe.food.kimchinoodleActivity;
 import recipeinhand.com.sidemenu.sample.recipe.food.kimchiriceActivity;
 import recipeinhand.com.sidemenu.sample.recipe.food.kimchizzigaeActivity;
+import recipeinhand.com.sidemenu.sample.recipe.food.zeyukActivity;
 
 public class SearchActivity extends AppCompatActivity {
 
@@ -189,6 +192,7 @@ public class SearchActivity extends AppCompatActivity {
 
             listView.setAdapter(myAdapter);
             recipeList.add(new SampleData(R.drawable.food_creamshrimp, "크림 새우","새우, 치커리, 튀김가루 1컵, 올리브오일 30g, 식용유, 마요네즈, 식초, 설탕"));
+            recipeList.add(new SampleData(R.drawable.desert_gambas, "새우 감바스","칵테일 새우 200g, 소금, 고춧가루 1/3스푼, 양송이 4개, 방울토마토 5개, 브로콜리 60g, 통마늘 15개,  올리브유 180ml, 후추"));
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
                 @Override
                 public void onItemClick(AdapterView parent, View v, int position, long id){
@@ -198,7 +202,12 @@ public class SearchActivity extends AppCompatActivity {
                     if (myAdapter.getItem(position).getTitle() == "크림 새우") {
                         Intent intent = new Intent(getApplicationContext(), creamshrimpActivity.class);
                         startActivity(intent);
-                    }}
+                    }
+                    if (myAdapter.getItem(position).getTitle() == "새우 감바스") {
+                        Intent intent = new Intent(getApplicationContext(), gambasActivity.class);
+                        startActivity(intent);
+                    }
+                }
             });
         }
         else if (tag.contains("치즈")) {
@@ -342,8 +351,8 @@ public class SearchActivity extends AppCompatActivity {
                 /*Toast.makeText(getContext(),
                         myAdapter.getItem(position).getTitle(),
                         Toast.LENGTH_LONG).show();*/
-                    if (myAdapter.getItem(position).getTitle() == "딸기 라떼") {
-                        Intent intent = new Intent(getApplicationContext(), StrawberryLatteActivity.class);
+                    if (myAdapter.getItem(position).getTitle() == "오렌지 에이드") {
+                        Intent intent = new Intent(getApplicationContext(), orangeadeActivity.class);
                         startActivity(intent);
                     }
                     if (myAdapter.getItem(position).getTitle() == "자몽에이드") {
@@ -352,6 +361,26 @@ public class SearchActivity extends AppCompatActivity {
                     }
                     if (myAdapter.getItem(position).getTitle() == "블루 레몬에이드") {
                         Intent intent = new Intent(getApplicationContext(), bluelemonadeActivity.class);
+                        startActivity(intent);
+                    }
+                }
+            });
+        }
+        else if (tag.contains("오렌지")) {
+            ListView listView = (ListView)findViewById(R.id.listview_list);
+            final MyAdapter myAdapter = new MyAdapter(this,recipeList);
+
+            listView.setAdapter(myAdapter);
+            recipeList.add(new SampleData(R.drawable.drink_orangeade, "오렌지 에이드","오렌지 1개, 레몬즙 1티스푼, 아가베시럽 2티스푼, 탄산수 150~200ml"));
+
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                @Override
+                public void onItemClick(AdapterView parent, View v, int position, long id){
+                /*Toast.makeText(getContext(),
+                        myAdapter.getItem(position).getTitle(),
+                        Toast.LENGTH_LONG).show();*/
+                    if (myAdapter.getItem(position).getTitle() == "오렌지 에이드") {
+                        Intent intent = new Intent(getApplicationContext(), orangeadeActivity.class);
                         startActivity(intent);
                     }
                 }
@@ -496,6 +525,66 @@ public class SearchActivity extends AppCompatActivity {
                         Toast.LENGTH_LONG).show();*/
                     if (myAdapter.getItem(position).getTitle() == "원팬 계란토스트") {
                         Intent intent = new Intent(getApplicationContext(), onepantoastActivity.class);
+                        startActivity(intent);
+                    }
+                }
+            });
+        }
+        else if (tag.contains("제육")) {
+            ListView listView = (ListView)findViewById(R.id.listview_list);
+            final MyAdapter myAdapter = new MyAdapter(this,recipeList);
+
+            listView.setAdapter(myAdapter);
+            recipeList.add(new SampleData(R.drawable.food_zeyuk, "고추장 제육볶음","돼지고기 앞다리살 300g, 삼겹살 300g, 양파 1/2개, 대파 1대, 고춧가루, 고추장, 진간장, 매실청, 맛술, 다진 마늘, 청양고추 다진 것, 설탕, 깨소금,  통깨"));
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                @Override
+                public void onItemClick(AdapterView parent, View v, int position, long id) {
+                /*Toast.makeText(getContext(),
+                        myAdapter.getItem(position).getTitle(),
+                        Toast.LENGTH_LONG).show();*/
+
+                    if (myAdapter.getItem(position).getTitle() == "고추장 제육볶음") {
+                        Intent intent = new Intent(getApplicationContext(), zeyukActivity.class);
+                        startActivity(intent);
+                    }
+                }
+            });
+        }
+        else if (tag.contains("고추")) {
+            ListView listView = (ListView)findViewById(R.id.listview_list);
+            final MyAdapter myAdapter = new MyAdapter(this,recipeList);
+
+            listView.setAdapter(myAdapter);
+            recipeList.add(new SampleData(R.drawable.food_zeyuk, "고추장 제육볶음","돼지고기 앞다리살 300g, 삼겹살 300g, 양파 1/2개, 대파 1대, 고춧가루, 고추장, 진간장, 매실청, 맛술, 다진 마늘, 청양고추 다진 것, 설탕, 깨소금,  통깨"));
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                @Override
+                public void onItemClick(AdapterView parent, View v, int position, long id) {
+                /*Toast.makeText(getContext(),
+                        myAdapter.getItem(position).getTitle(),
+                        Toast.LENGTH_LONG).show();*/
+
+                    if (myAdapter.getItem(position).getTitle() == "고추장 제육볶음") {
+                        Intent intent = new Intent(getApplicationContext(), zeyukActivity.class);
+                        startActivity(intent);
+                    }
+                }
+            });
+        }
+        else if (tag.contains("감바스")) {
+            ListView listView = (ListView)findViewById(R.id.listview_list);
+            final MyAdapter myAdapter = new MyAdapter(this,recipeList);
+
+            listView.setAdapter(myAdapter);
+            recipeList.add(new SampleData(R.drawable.desert_gambas, "새우 감바스","칵테일 새우 200g, 소금, 고춧가루 1/3스푼, 양송이 4개, 방울토마토 5개, 브로콜리 60g, 통마늘 15개,  올리브유 180ml, 후추"));
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                @Override
+                public void onItemClick(AdapterView parent, View v, int position, long id) {
+                /*Toast.makeText(getContext(),
+                        myAdapter.getItem(position).getTitle(),
+                        Toast.LENGTH_LONG).show();*/
+
+                    if (myAdapter.getItem(position).getTitle() == "새우 감바스") {
+                        Intent intent = new Intent(getApplicationContext(), gambasActivity.class);
                         startActivity(intent);
                     }
                 }

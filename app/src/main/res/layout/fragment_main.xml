@@ -223,7 +223,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="오늘의 추천"
+                    android:text="레시피 더보기"
                     android:textColor="@color/colorBlack"
                     android:textStyle="bold"
                     android:textSize="22dp">
