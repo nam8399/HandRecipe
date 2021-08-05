@@ -22,6 +22,7 @@ public class WebviewActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         int id = intent.getExtras().getInt("onclick");
+        int key = intent.getExtras().getInt("Key");
 
 
         webview = (WebView) findViewById(R.id.webview);
@@ -40,6 +41,25 @@ public class WebviewActivity extends AppCompatActivity {
         }
         if ( id == 4) {
             String url = "https://post.naver.com/viewer/postView.naver?volumeNo=16195559&memberNo=34545175&searchKeyword=%EC%9E%90%EC%B7%A8%EC%83%9D%20%EC%9E%A5%EB%A7%88&searchRank=8";
+            webview.loadUrl(url);
+        }
+
+
+
+        if (key == 2131099832 ) {
+            String url = "https://www.youtube.com/watch?v=rEnnfMFAijU";
+            webview.loadUrl(url);
+        }
+        if (key == 2131099835 ) {
+            String url = "https://www.youtube.com/watch?v=kmIYGGlua9s";
+            webview.loadUrl(url);
+        }
+        if (key == 2131099834 ) {
+            String url = "https://www.youtube.com/watch?v=rgjxXgDLPc0";
+            webview.loadUrl(url);
+        }
+        if (key == 2131099833 ) {
+            String url = "https://www.youtube.com/watch?v=tkaWoUMKV7E";
             webview.loadUrl(url);
         }
         webview.setWebChromeClient(new WebChromeClient());

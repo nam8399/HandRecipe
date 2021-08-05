@@ -19,6 +19,10 @@ import android.view.animation.AccelerateInterpolator;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +33,7 @@ import recipeinhand.com.sidemenu.model.SlideMenuItem;
 import recipeinhand.com.sidemenu.sample.fragment.CoffeeFragment;
 import recipeinhand.com.sidemenu.sample.fragment.ContentFragment;
 import recipeinhand.com.sidemenu.sample.fragment.DesertFragment;
+import recipeinhand.com.sidemenu.sample.fragment.ReportFragment;
 import recipeinhand.com.sidemenu.sample.fragment.RiceFragment;
 import recipeinhand.com.sidemenu.util.ViewAnimator;
 
@@ -42,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements ViewAnimator.View
     private int res = R.drawable.content_music;
     private LinearLayout linearLayout;
     private long lastTimeBackPressed;
+    private AdView adView;
 
 
 
@@ -55,6 +61,12 @@ public class MainActivity extends AppCompatActivity implements ViewAnimator.View
                 .replace(R.id.content_frame, contentFragment)
                 .commit();
 
+        MobileAds.initialize(this, "ca-app-pub-5382921366365796/2787033298");
+        /*
+        adView = new AdView(this);
+        adView.setAdUnitId("ca-app-pub-5382921366365796/2787033298");
+        adView.loadAd(new AdRequest.Builder().build());
+*/
         drawerLayout = findViewById(R.id.drawer_layout);
         drawerLayout.setScrimColor(Color.TRANSPARENT);
         linearLayout = findViewById(R.id.left_drawer);
@@ -80,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements ViewAnimator.View
         list.add(menuItem2);
         SlideMenuItem menuItem3 = new SlideMenuItem(DesertFragment.CAKE, R.drawable.icn_cake);
         list.add(menuItem3);
-        SlideMenuItem menuItem4 = new SlideMenuItem(ContentFragment.SETTING, R.drawable.icn_2);
+        SlideMenuItem menuItem4 = new SlideMenuItem(ReportFragment.BOOK, R.drawable.icn_2);
         list.add(menuItem4);
         SlideMenuItem menuItem5 = new SlideMenuItem(ContentFragment.HOME, R.drawable.icn_home);
         list.add(menuItem5);
@@ -93,12 +105,6 @@ public class MainActivity extends AppCompatActivity implements ViewAnimator.View
         fragmentTransaction.replace(R.id.content_frame, fragment).commit();
     }
 
-    public void replace2(Fragment fragment) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.anim.fadein, R.anim.fadeout, R.anim.fadein, R.anim.fadeout);
-        fragmentTransaction.replace(R.id.content_frame, fragment).commit();
-    }
 
     private void setActionBar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -232,6 +238,21 @@ public class MainActivity extends AppCompatActivity implements ViewAnimator.View
         getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, desertFragment).commit();
         return contentFragment;
     }
+    private ScreenShotable replaceFragment5(ScreenShotable screenShotable, int topPosition) {
+        this.res = this.res == R.drawable.content_music ? R.drawable.icn_open : R.drawable.content_music;
+        View view = findViewById(R.id.content_frame);
+        int finalRadius = Math.max(view.getWidth(), view.getHeight());
+        Animator animator = ViewAnimationUtils.createCircularReveal(view, 0, topPosition, 0, finalRadius);
+        animator.setInterpolator(new AccelerateInterpolator());
+        animator.setDuration(ViewAnimator.CIRCULAR_REVEAL_ANIMATION_DURATION);
+
+        findViewById(R.id.content_overlay).setBackground(new BitmapDrawable(getResources(), screenShotable.getBitmap()));
+        animator.start();
+        ContentFragment contentFragment = ContentFragment.newInstance(this.res);
+        ReportFragment reportFragment = ReportFragment.newInstance(this.res);
+        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, reportFragment).commit();
+        return contentFragment;
+    }
 
 
 
@@ -248,6 +269,8 @@ public class MainActivity extends AppCompatActivity implements ViewAnimator.View
                 return replaceFragment(screenShotable, position);
             case DesertFragment.CAKE:
                 return replaceFragment4(screenShotable, position);
+            case ReportFragment.BOOK:
+                return replaceFragment5(screenShotable, position);
             default:
                 return replaceFragment(screenShotable, position);
         }

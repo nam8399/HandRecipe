@@ -14,14 +14,22 @@ import java.util.ArrayList;
 
 public class VideoData {
     private int imageResId;
+    private String idx;
 
 
-    public VideoData(int a_resId) {
+
+
+    public VideoData(int a_resId, String idx) {
+
         imageResId = a_resId;
+        idx = idx;
     }
 
     public int getImageResId() {
         return imageResId;
     }
 
+    public String getIdx() {
+        return idx;
+    }
 }

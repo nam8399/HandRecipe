@@ -45,13 +45,12 @@ public class ContentFragment extends Fragment implements ScreenShotable {
     public static final String PARTY = "Party";
     public static final String MOVIE = "Movie";
     public static final String HOME = "Home";
-    public static final String SETTING = "Setting";
 
     private View containerView;
     protected ImageView mImageView;
     protected int res;
     private Bitmap bitmap;
-    ImageView img_drink, img_food, img_fast, img_diet, gooddata1, gooddata2, gooddata3, gooddata4;
+    ImageView img_drink, img_food, img_fast, img_diet, img_report, gooddata1, gooddata2, gooddata3, gooddata4;
     EditText editText;
 
 
@@ -173,10 +172,12 @@ public class ContentFragment extends Fragment implements ScreenShotable {
         });
 
 
+
         img_drink = rootView.findViewById(R.id.img_drink);
         img_food = rootView.findViewById(R.id.img_food);
         img_fast = rootView.findViewById(R.id.img_desert);
         img_diet = rootView.findViewById(R.id.img_diet);
+        img_report = rootView.findViewById(R.id.img_report);
         img_drink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -197,11 +198,13 @@ public class ContentFragment extends Fragment implements ScreenShotable {
                 ((MainActivity) getActivity()).replace(DesertFragment.newInstance(res));
             }
         });
-        img_diet.setOnClickListener(new View.OnClickListener() {
+        img_report.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ((MainActivity) getActivity()).replace(ReportFragment.newInstance(res));
             }
         });
+
 
         editText = rootView.findViewById(R.id.edittext);
 
@@ -238,28 +241,28 @@ public class ContentFragment extends Fragment implements ScreenShotable {
         int v = arr_random_num[i];
 
         if (v == 1) {
-            itemList.add(new VideoData(R.drawable.todaycook_pizza));
-            itemList.add(new VideoData(R.drawable.todaycook_chicken));
-            itemList.add(new VideoData(R.drawable.todaycook_oilpasta));
-            itemList.add(new VideoData(R.drawable.todaycook_koreacow));
+            itemList.add(new VideoData(R.drawable.todaycook_ramen, "1"));
+            itemList.add(new VideoData(R.drawable.todaycook_eggfood, "2"));
+            itemList.add(new VideoData(R.drawable.todaycook_spam, "3"));
+            itemList.add(new VideoData(R.drawable.todaycook_shrimp, "4"));
         }
         else if (v == 2) {
-            itemList.add(new VideoData(R.drawable.todaycook_chicken));
-            itemList.add(new VideoData(R.drawable.todaycook_pizza));
-            itemList.add(new VideoData(R.drawable.todaycook_koreacow));
-            itemList.add(new VideoData(R.drawable.todaycook_oilpasta));
+            itemList.add(new VideoData(R.drawable.todaycook_eggfood, "2"));
+            itemList.add(new VideoData(R.drawable.todaycook_spam, "3"));
+            itemList.add(new VideoData(R.drawable.todaycook_shrimp, "4"));
+            itemList.add(new VideoData(R.drawable.todaycook_ramen, "1"));
         }
         else if (v == 3) {
-            itemList.add(new VideoData(R.drawable.todaycook_oilpasta));
-            itemList.add(new VideoData(R.drawable.todaycook_koreacow));
-            itemList.add(new VideoData(R.drawable.todaycook_pizza));
-            itemList.add(new VideoData(R.drawable.todaycook_chicken));
+            itemList.add(new VideoData(R.drawable.todaycook_spam, "3"));
+            itemList.add(new VideoData(R.drawable.todaycook_shrimp, "4"));
+            itemList.add(new VideoData(R.drawable.todaycook_ramen, "1"));
+            itemList.add(new VideoData(R.drawable.todaycook_eggfood, "2"));
         }
         else if (v == 4) {
-            itemList.add(new VideoData(R.drawable.todaycook_koreacow));
-            itemList.add(new VideoData(R.drawable.todaycook_oilpasta));
-            itemList.add(new VideoData(R.drawable.todaycook_chicken));
-            itemList.add(new VideoData(R.drawable.todaycook_pizza));
+            itemList.add(new VideoData(R.drawable.todaycook_shrimp, "4"));
+            itemList.add(new VideoData(R.drawable.todaycook_ramen, "1"));
+            itemList.add(new VideoData(R.drawable.todaycook_eggfood, "2"));
+            itemList.add(new VideoData(R.drawable.todaycook_spam, "3"));
         }
 
 
@@ -267,8 +270,9 @@ public class ContentFragment extends Fragment implements ScreenShotable {
         // Recycler view
         RecyclerView recyclerView = rootView.findViewById(R.id.list_video);
         // Adapter 추가
-        VideoViewAdapter adapter = new VideoViewAdapter(itemList);
+        VideoViewAdapter adapter = new VideoViewAdapter(getContext() ,itemList, onClickItem);
         recyclerView.setAdapter(adapter);
+
 
         MyListDecoration decoration = new MyListDecoration();
         recyclerView.addItemDecoration(decoration);

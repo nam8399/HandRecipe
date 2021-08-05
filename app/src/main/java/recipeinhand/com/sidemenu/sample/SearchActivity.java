@@ -32,9 +32,12 @@ import recipeinhand.com.sidemenu.sample.recipe.drink.bluelemonadeActivity;
 import recipeinhand.com.sidemenu.sample.recipe.drink.dalgonaActivity;
 import recipeinhand.com.sidemenu.sample.recipe.drink.orangeadeActivity;
 import recipeinhand.com.sidemenu.sample.recipe.drink.zamongadeActivity;
+import recipeinhand.com.sidemenu.sample.recipe.food.alioolioActivity;
+import recipeinhand.com.sidemenu.sample.recipe.food.carbonaraActivity;
 import recipeinhand.com.sidemenu.sample.recipe.food.cheeserabokeeActivity;
 import recipeinhand.com.sidemenu.sample.recipe.food.creampastaActivity;
 import recipeinhand.com.sidemenu.sample.recipe.food.creamshrimpActivity;
+import recipeinhand.com.sidemenu.sample.recipe.food.dakdoriActivity;
 import recipeinhand.com.sidemenu.sample.recipe.food.kimchinoodleActivity;
 import recipeinhand.com.sidemenu.sample.recipe.food.kimchiriceActivity;
 import recipeinhand.com.sidemenu.sample.recipe.food.kimchizzigaeActivity;
@@ -585,6 +588,97 @@ public class SearchActivity extends AppCompatActivity {
 
                     if (myAdapter.getItem(position).getTitle() == "새우 감바스") {
                         Intent intent = new Intent(getApplicationContext(), gambasActivity.class);
+                        startActivity(intent);
+                    }
+                }
+            });
+        }
+        else if (tag.contains("까르보나라")) {
+            ListView listView = (ListView)findViewById(R.id.listview_list);
+            final MyAdapter myAdapter = new MyAdapter(this,recipeList);
+
+            listView.setAdapter(myAdapter);
+            recipeList.add(new SampleData(R.drawable.food_carbonara, "까르보나라","스파게티면(생면을 엄지와 검지로 살짝 쥐었을 때 잡히는 굵기가 1인분), 다진마늘 4스푼, 베이컨 6장, 계란 2개, 노른자, 파마산치즈 1컵, 후추, 올리브 오일"));
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                @Override
+                public void onItemClick(AdapterView parent, View v, int position, long id) {
+                /*Toast.makeText(getContext(),
+                        myAdapter.getItem(position).getTitle(),
+                        Toast.LENGTH_LONG).show();*/
+
+                    if (myAdapter.getItem(position).getTitle() == "까르보나라") {
+                        Intent intent = new Intent(getApplicationContext(), carbonaraActivity.class);
+                        startActivity(intent);
+                    }
+                }
+            });
+        }
+        else if (tag.contains("알리오올리오")) {
+            ListView listView = (ListView)findViewById(R.id.listview_list);
+            final MyAdapter myAdapter = new MyAdapter(this,recipeList);
+
+            listView.setAdapter(myAdapter);
+            recipeList.add(new SampleData(R.drawable.food_ailoolio, "알리오올리오 파스타","링귀니면 2인분, 면수(면을 끓인 물), 냉동 새우, 페페론치노 3개정도 or 베트남고추(매운맛 취향만큼), 올리브오일 1/3컵, 깐마늘 20개, 소금, 절임올리브"));
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                @Override
+                public void onItemClick(AdapterView parent, View v, int position, long id) {
+                /*Toast.makeText(getContext(),
+                        myAdapter.getItem(position).getTitle(),
+                        Toast.LENGTH_LONG).show();*/
+
+                    if (myAdapter.getItem(position).getTitle() == "알리오올리오 파스타") {
+                        Intent intent = new Intent(getApplicationContext(), alioolioActivity.class);
+                        startActivity(intent);
+                    }
+                }
+            });
+        }
+        else if (tag.contains("파스타")) {
+            ListView listView = (ListView)findViewById(R.id.listview_list);
+            final MyAdapter myAdapter = new MyAdapter(this,recipeList);
+
+            listView.setAdapter(myAdapter);
+            recipeList.add(new SampleData(R.drawable.food_ailoolio, "알리오올리오 파스타","링귀니면 2인분, 면수(면을 끓인 물), 냉동 새우, 페페론치노 3개정도 or 베트남고추(매운맛 취향만큼), 올리브오일 1/3컵, 깐마늘 20개, 소금, 절임올리브"));
+            recipeList.add(new SampleData(R.drawable.food_carbonara, "까르보나라","스파게티면(생면을 엄지와 검지로 살짝 쥐었을 때 잡히는 굵기가 1인분), 다진마늘 4스푼, 베이컨 6장, 계란 2개, 노른자, 파마산치즈 1컵, 후추, 올리브 오일"));
+            recipeList.add(new SampleData(R.drawable.food_creampasta, "베이컨 크림파스타","마늘 7~8알, 양파 반개, 베이컨 200g, 양송이버섯 5~6개 슬라이스, 파스타면 2인분, 올리브오일, 허브솔트, 시판 크림파스타소스 200g, 우유 100ml"));
+
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                @Override
+                public void onItemClick(AdapterView parent, View v, int position, long id) {
+                /*Toast.makeText(getContext(),
+                        myAdapter.getItem(position).getTitle(),
+                        Toast.LENGTH_LONG).show();*/
+
+                    if (myAdapter.getItem(position).getTitle() == "알리오올리오 파스타") {
+                        Intent intent = new Intent(getApplicationContext(), alioolioActivity.class);
+                        startActivity(intent);
+                    }
+                    if (myAdapter.getItem(position).getTitle() == "까르보나라") {
+                        Intent intent = new Intent(getApplicationContext(), carbonaraActivity.class);
+                        startActivity(intent);
+                    }
+                    if (myAdapter.getItem(position).getTitle() == "베이컨 크림파스타") {
+                        Intent intent = new Intent(getApplicationContext(), creampastaActivity.class);
+                        startActivity(intent);
+                    }
+                }
+            });
+        }
+        else if (tag.contains("닭")) {
+            ListView listView = (ListView)findViewById(R.id.listview_list);
+            final MyAdapter myAdapter = new MyAdapter(this,recipeList);
+
+            listView.setAdapter(myAdapter);
+            recipeList.add(new SampleData(R.drawable.food_dakdori, "닭볶음탕","닭볶음탕용 닭 1kg, 감자 2개, 당근 1/2개, 양파 1개, 대파 1대, 청양고추 1~2개, 물 3컵(600ml), 설탕 3큰술, 고춧가루 4T, 간장 9T, 다진마늘 1T, 다진 생강 1/3T"));
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                @Override
+                public void onItemClick(AdapterView parent, View v, int position, long id) {
+                /*Toast.makeText(getContext(),
+                        myAdapter.getItem(position).getTitle(),
+                        Toast.LENGTH_LONG).show();*/
+
+                    if (myAdapter.getItem(position).getTitle() == "닭볶음탕") {
+                        Intent intent = new Intent(getApplicationContext(), dakdoriActivity.class);
                         startActivity(intent);
                     }
                 }

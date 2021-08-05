@@ -6,12 +6,14 @@ import android.widget.ImageView;
 
 public class VideoViewHolder extends RecyclerView.ViewHolder {
 
-    ImageView ivIcon;
+    public ImageView ivIcon;
 
-    public VideoViewHolder(View a_itemView) {
+    VideoViewHolder(View a_itemView) {
         super(a_itemView);
 
         ivIcon = a_itemView.findViewById(R.id.list_video);
+
+
     }
 
 }

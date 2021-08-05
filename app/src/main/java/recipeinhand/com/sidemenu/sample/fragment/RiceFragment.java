@@ -24,9 +24,12 @@ import recipeinhand.com.sidemenu.sample.R;
 import recipeinhand.com.sidemenu.sample.SampleData;
 import recipeinhand.com.sidemenu.sample.onBackPressedListener;
 import recipeinhand.com.sidemenu.sample.recipe.drink.dalgonaActivity;
+import recipeinhand.com.sidemenu.sample.recipe.food.alioolioActivity;
+import recipeinhand.com.sidemenu.sample.recipe.food.carbonaraActivity;
 import recipeinhand.com.sidemenu.sample.recipe.food.cheeserabokeeActivity;
 import recipeinhand.com.sidemenu.sample.recipe.food.creampastaActivity;
 import recipeinhand.com.sidemenu.sample.recipe.food.creamshrimpActivity;
+import recipeinhand.com.sidemenu.sample.recipe.food.dakdoriActivity;
 import recipeinhand.com.sidemenu.sample.recipe.food.kimchinoodleActivity;
 import recipeinhand.com.sidemenu.sample.recipe.food.kimchiriceActivity;
 import recipeinhand.com.sidemenu.sample.recipe.food.kimchizzigaeActivity;
@@ -113,6 +116,18 @@ public class RiceFragment extends Fragment implements onBackPressedListener {
                     Intent intent = new Intent(getContext(), zeyukActivity.class);
                     startActivity(intent);
                 }
+                if (myAdapter.getItem(position).getTitle() == "알리오올리오 파스타") {
+                    Intent intent = new Intent(getContext(), alioolioActivity.class);
+                    startActivity(intent);
+                }
+                if (myAdapter.getItem(position).getTitle() == "까르보나라") {
+                    Intent intent = new Intent(getContext(), carbonaraActivity.class);
+                    startActivity(intent);
+                }
+                if (myAdapter.getItem(position).getTitle() == "닭볶음탕") {
+                    Intent intent = new Intent(getContext(), dakdoriActivity.class);
+                    startActivity(intent);
+                }
 
             }
         });
@@ -131,6 +146,10 @@ public class RiceFragment extends Fragment implements onBackPressedListener {
         recipeList.add(new SampleData(R.drawable.food_creamshrimp, "크림 새우","새우, 치커리, 튀김가루 1컵, 올리브오일 30g, 식용유, 마요네즈, 식초, 설탕"));
         recipeList.add(new SampleData(R.drawable.food_cheeserabokee, "치즈 라볶이","라면한봉지, 떡국떡한줌, 어묵2장, 치즈1장, 라면스프3/4, 고추장 1.5큰술, 설탕 1.5큰술"));
         recipeList.add(new SampleData(R.drawable.food_zeyuk, "고추장 제육볶음","돼지고기 앞다리살 300g, 삼겹살 300g, 양파 1/2개, 대파 1대, 고춧가루, 고추장, 진간장, 매실청, 맛술, 다진 마늘, 청양고추 다진 것, 설탕, 깨소금,  통깨"));
+        recipeList.add(new SampleData(R.drawable.food_ailoolio, "알리오올리오 파스타","링귀니면 2인분, 면수(면을 끓인 물), 냉동 새우, 페페론치노 3개정도 or 베트남고추(매운맛 취향만큼), 올리브오일 1/3컵, 깐마늘 20개, 소금, 절임올리브"));
+        recipeList.add(new SampleData(R.drawable.food_carbonara, "까르보나라","스파게티면, 다진마늘 4스푼, 베이컨 6장, 계란 2개, 노른자, 파마산치즈 1컵, 후추, 올리브 오일"));
+        recipeList.add(new SampleData(R.drawable.food_dakdori, "닭볶음탕","닭볶음탕용 닭 1kg, 감자 2개, 당근 1/2개, 양파 1개, 대파 1대, 청양고추 1~2개, 물 3컵(600ml), 설탕 3큰술, 고춧가루 4T, 간장 9T, 다진마늘 1T, 다진 생강 1/3T"));
+
     }
     @Override
     public void onBackPressed() {
