@@ -1,5 +1,6 @@
 package recipeinhand.com.sidemenu.sample;
 
+import android.app.Person;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -8,60 +9,74 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import recipeinhand.com.sidemenu.sample.fragment.ContentFragment;
 
-public class VideoViewAdapter extends RecyclerView.Adapter<VideoViewHolder> {
+public class VideoViewAdapter extends RecyclerView.Adapter<VideoViewHolder> implements OnPersonItemClickListener {
+
+    OnPersonItemClickListener listener;
+    ArrayList<VideoData> items = new ArrayList<VideoData>();
 
 
-
-
-    private List<VideoData> mItemList;
-    private Context context;
-    private View.OnClickListener onClickItem;
-
-
-    public VideoViewAdapter(Context context, List<VideoData> a_list, View.OnClickListener onClickItem)
-    {
-        this.context = context;
-        this.mItemList = a_list;
-        this.onClickItem = onClickItem;
+    @Override
+    public void onItemClick(VideoViewHolder holder, View view, int position) {
+        if(listener != null){
+            listener.onItemClick(holder,view,position);
+        }
     }
+
+
+
+    private Context context;
+
+
+
+
 
     @Override
     public VideoViewHolder onCreateViewHolder(@NonNull ViewGroup a_viewGroup, int a_position) {
         View view = LayoutInflater.from(a_viewGroup.getContext()).inflate(R.layout.listview_video, a_viewGroup, false);
-        VideoViewHolder viewHolder = new VideoViewHolder(view);
-        context = a_viewGroup.getContext();
 
-        return new VideoViewHolder(view);
+        return new VideoViewHolder(view, this);
     }
 
     @Override
     public void onBindViewHolder(@NonNull VideoViewHolder a_viewHolder, int a_position) {
-        final VideoData item = mItemList.get(a_position);
+        VideoData item = items.get(a_position);
 
-        a_viewHolder.ivIcon.setTag(item.getIdx());
+        //a_viewHolder.ivIcon.setTag(item.getIdx());
         a_viewHolder.ivIcon.setImageResource(item.getImageResId());
-        a_viewHolder.ivIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d("위치확인", "" + mItemList.get(a_position).getImageResId());
-                Intent intent = new Intent(context, WebviewActivity.class);
-                int key = mItemList.get(a_position).getImageResId();
-                intent.putExtra("Key", key);
-                context.startActivity(intent);
-            }
-        });
+
 
     }
 
     @Override
     public int getItemCount() {
-        return mItemList.size();
+        return items.size();
     }
 
+    public void setOnItemClicklistener(OnPersonItemClickListener listener) {
+        this.listener = listener;
+    }
+
+    public void addItem(VideoData item) {
+        items.add(item);
+    }
+
+    public void setItems(ArrayList<VideoData> items) {
+        this.items = items;
+    }
+
+    public VideoData getitem(int position) {
+        return items.get(position);
+    }
+
+    public void setItem(int position, VideoData item) {
+        items.set(position, item);
+    }
 
 }

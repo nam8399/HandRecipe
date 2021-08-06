@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements ViewAnimator.View
                 .replace(R.id.content_frame, contentFragment)
                 .commit();
 
-        MobileAds.initialize(this, "ca-app-pub-5382921366365796/2787033298");
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544/6300978111");
         /*
         adView = new AdView(this);
         adView.setAdUnitId("ca-app-pub-5382921366365796/2787033298");

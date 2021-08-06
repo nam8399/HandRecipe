@@ -11,6 +11,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,10 +31,12 @@ import java.util.Random;
 import recipeinhand.com.sidemenu.interfaces.ScreenShotable;
 import recipeinhand.com.sidemenu.sample.MainActivity;
 import recipeinhand.com.sidemenu.sample.MyListDecoration;
+import recipeinhand.com.sidemenu.sample.OnPersonItemClickListener;
 import recipeinhand.com.sidemenu.sample.R;
 import recipeinhand.com.sidemenu.sample.SearchActivity;
 import recipeinhand.com.sidemenu.sample.VideoData;
 import recipeinhand.com.sidemenu.sample.VideoViewAdapter;
+import recipeinhand.com.sidemenu.sample.VideoViewHolder;
 import recipeinhand.com.sidemenu.sample.WebviewActivity;
 
 /**
@@ -52,6 +55,8 @@ public class ContentFragment extends Fragment implements ScreenShotable {
     private Bitmap bitmap;
     ImageView img_drink, img_food, img_fast, img_diet, img_report, gooddata1, gooddata2, gooddata3, gooddata4;
     EditText editText;
+    RecyclerView recyclerView;
+    VideoViewAdapter adapter;
 
 
     Integer arr_random_num[] = new Integer[4];
@@ -227,8 +232,6 @@ public class ContentFragment extends Fragment implements ScreenShotable {
         });
 
 
-        List<VideoData> itemList = new ArrayList<>();
-
 
 
 
@@ -240,49 +243,71 @@ public class ContentFragment extends Fragment implements ScreenShotable {
 
         int v = arr_random_num[i];
 
-        if (v == 1) {
-            itemList.add(new VideoData(R.drawable.todaycook_ramen, "1"));
-            itemList.add(new VideoData(R.drawable.todaycook_eggfood, "2"));
-            itemList.add(new VideoData(R.drawable.todaycook_spam, "3"));
-            itemList.add(new VideoData(R.drawable.todaycook_shrimp, "4"));
-        }
-        else if (v == 2) {
-            itemList.add(new VideoData(R.drawable.todaycook_eggfood, "2"));
-            itemList.add(new VideoData(R.drawable.todaycook_spam, "3"));
-            itemList.add(new VideoData(R.drawable.todaycook_shrimp, "4"));
-            itemList.add(new VideoData(R.drawable.todaycook_ramen, "1"));
-        }
-        else if (v == 3) {
-            itemList.add(new VideoData(R.drawable.todaycook_spam, "3"));
-            itemList.add(new VideoData(R.drawable.todaycook_shrimp, "4"));
-            itemList.add(new VideoData(R.drawable.todaycook_ramen, "1"));
-            itemList.add(new VideoData(R.drawable.todaycook_eggfood, "2"));
-        }
-        else if (v == 4) {
-            itemList.add(new VideoData(R.drawable.todaycook_shrimp, "4"));
-            itemList.add(new VideoData(R.drawable.todaycook_ramen, "1"));
-            itemList.add(new VideoData(R.drawable.todaycook_eggfood, "2"));
-            itemList.add(new VideoData(R.drawable.todaycook_spam, "3"));
-        }
 
 
 
         // Recycler view
-        RecyclerView recyclerView = rootView.findViewById(R.id.list_video);
+        //RecyclerView recyclerView = rootView.findViewById(R.id.list_video);
         // Adapter 추가
-        VideoViewAdapter adapter = new VideoViewAdapter(getContext() ,itemList, onClickItem);
-        recyclerView.setAdapter(adapter);
 
 
         MyListDecoration decoration = new MyListDecoration();
+        recyclerView = rootView.findViewById(R.id.list_video);
+
         recyclerView.addItemDecoration(decoration);
+
+
 
         // Layout manager 추가
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayout.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
+        adapter = new VideoViewAdapter();
+
+
+        if (v == 1) {
+            adapter.addItem(new VideoData(R.drawable.todaycook_ramen, 1));
+            adapter.addItem(new VideoData(R.drawable.todaycook_eggfood, 2));
+            adapter.addItem(new VideoData(R.drawable.todaycook_spam, 3));
+            adapter.addItem(new VideoData(R.drawable.todaycook_shrimp, 4));
+
+        }
+        else if (v == 2) {
+            adapter.addItem(new VideoData(R.drawable.todaycook_eggfood, 2));
+            adapter.addItem(new VideoData(R.drawable.todaycook_spam, 3));
+            adapter.addItem(new VideoData(R.drawable.todaycook_shrimp, 4));
+            adapter.addItem(new VideoData(R.drawable.todaycook_ramen, 1));
+        }
+        else if (v == 3) {
+            adapter.addItem(new VideoData(R.drawable.todaycook_spam, 3));
+            adapter.addItem(new VideoData(R.drawable.todaycook_shrimp, 4));
+            adapter.addItem(new VideoData(R.drawable.todaycook_ramen, 1));
+            adapter.addItem(new VideoData(R.drawable.todaycook_eggfood, 2));
+        }
+        else if (v == 4) {
+            adapter.addItem(new VideoData(R.drawable.todaycook_shrimp, 4));
+            adapter.addItem(new VideoData(R.drawable.todaycook_ramen, 1));
+            adapter.addItem(new VideoData(R.drawable.todaycook_eggfood, 2));
+            adapter.addItem(new VideoData(R.drawable.todaycook_spam, 3));
+        }
+
+        recyclerView.setAdapter(adapter);
+
+        adapter.setOnItemClicklistener(new OnPersonItemClickListener() {
+            @Override
+            public void onItemClick(VideoViewHolder holder, View view, int position) {
+                VideoData item = adapter.getitem(position);
+
+                Intent intent = new Intent(getContext(), WebviewActivity.class);
+                intent.putExtra("Key", item.getIdx());
+                startActivity(intent);
+                //Toast.makeText(getContext(), "아이템선택" + item.getIdx(), Toast.LENGTH_LONG).show();
+            }
+        });
         return rootView;
     }
+
+
 
 
 

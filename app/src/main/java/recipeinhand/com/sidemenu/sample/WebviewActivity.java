@@ -3,6 +3,7 @@ package recipeinhand.com.sidemenu.sample;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -46,19 +47,23 @@ public class WebviewActivity extends AppCompatActivity {
 
 
 
-        if (key == 2131099832 ) {
+        if (key == 2 ) {
+            //계란
             String url = "https://www.youtube.com/watch?v=rEnnfMFAijU";
             webview.loadUrl(url);
         }
-        if (key == 2131099835 ) {
+        if (key == 3 ) {
+            //스팸
             String url = "https://www.youtube.com/watch?v=kmIYGGlua9s";
             webview.loadUrl(url);
         }
-        if (key == 2131099834 ) {
+        if (key == 4 ) {
+            //새우
             String url = "https://www.youtube.com/watch?v=rgjxXgDLPc0";
             webview.loadUrl(url);
         }
-        if (key == 2131099833 ) {
+        if (key == 1 ) {
+            //라면
             String url = "https://www.youtube.com/watch?v=tkaWoUMKV7E";
             webview.loadUrl(url);
         }
