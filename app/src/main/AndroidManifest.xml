@@ -13,12 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".recipe.food.dakdoriActivity"></activity>
-
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-5382921366365796~5413196638" />
 
+        <activity android:name=".recipe.food.dakdoriActivity"></activity>
         <activity android:name=".recipe.food.carbonaraActivity" />
         <activity android:name=".recipe.food.alioolioActivity" />
         <activity android:name=".recipe.desert.gambasActivity" />

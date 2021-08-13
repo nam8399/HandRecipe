@@ -382,6 +382,12 @@
                     android:text="여름장마 대비 꿀팁!">
                 </TextView>
             </LinearLayout>
+            <LinearLayout
+                app:layout_constraintTop_toBottomOf="@id/recipefour"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                tools:ignore="MissingConstraints">
+            </LinearLayout>
 
 
         </android.support.constraint.ConstraintLayout>
