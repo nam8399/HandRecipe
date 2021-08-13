@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements ViewAnimator.View
 
 
 
-        MobileAds.initialize(this, "ca-app-pub-5382921366365796/2787033298");
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544/6300978111");
         AdRequest adRequest = new AdRequest.Builder().build();
         adView = findViewById(R.id.adView);
         adView.loadAd(adRequest);
