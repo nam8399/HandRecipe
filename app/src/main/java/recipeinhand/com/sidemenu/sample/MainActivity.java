@@ -35,7 +35,6 @@ import recipeinhand.com.sidemenu.model.SlideMenuItem;
 import recipeinhand.com.sidemenu.sample.fragment.CoffeeFragment;
 import recipeinhand.com.sidemenu.sample.fragment.ContentFragment;
 import recipeinhand.com.sidemenu.sample.fragment.DesertFragment;
-import recipeinhand.com.sidemenu.sample.fragment.ReportFragment;
 import recipeinhand.com.sidemenu.sample.fragment.RiceFragment;
 import recipeinhand.com.sidemenu.util.ViewAnimator;
 

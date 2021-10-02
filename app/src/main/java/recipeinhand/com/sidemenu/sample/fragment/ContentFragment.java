@@ -33,6 +33,7 @@ import recipeinhand.com.sidemenu.sample.MainActivity;
 import recipeinhand.com.sidemenu.sample.MyListDecoration;
 import recipeinhand.com.sidemenu.sample.OnPersonItemClickListener;
 import recipeinhand.com.sidemenu.sample.R;
+import recipeinhand.com.sidemenu.sample.ReportFragment;
 import recipeinhand.com.sidemenu.sample.SearchActivity;
 import recipeinhand.com.sidemenu.sample.VideoData;
 import recipeinhand.com.sidemenu.sample.VideoViewAdapter;
